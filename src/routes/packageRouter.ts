@@ -5,4 +5,6 @@ const packageRouter = Router();
 
 packageRouter.patch('/:id', packageController.updatePackageById);
 
+packageRouter.delete('/:id', packageController.deletePackageById);
+
 export default packageRouter;  

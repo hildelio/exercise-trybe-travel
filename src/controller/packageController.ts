@@ -14,6 +14,16 @@ const updatePackageById = async (req: Request, res: Response): Promise<Response>
   return res.status(type).send(data);
 };
 
+const deletePackageById = async (req: Request, res: Response): Promise<Response> => {
+  const { id } = req.params;
+  const { type, message, data } = await packageService.deletePackageById(+id);
+  if (type > 300) {
+    return res.status(type).send({ message });
+  }
+  return res.status(type).send(data);
+};
+
 export default {
   updatePackageById,
+  deletePackageById,
 };
